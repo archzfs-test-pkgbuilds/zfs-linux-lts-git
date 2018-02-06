@@ -18,22 +18,22 @@
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
 
-pkgver=2018.02.05.r3277.2b84817f6.4.14.17.1
+pkgver=2018.02.05.r3278.3d25488af.4.14.17.1
 pkgrel=1
 makedepends=("linux-lts-headers=4.14.17-1" "libelf" "git" "spl-linux-lts-git-headers")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=2b84817f66468da11d5c4373602a0044af46b572")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=3d25488afbc2eeaa92b12f7f8b6d686e7ef342eb")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "spl-linux-lts-git" "zfs-utils-common-git=2018.02.05.r3277.2b84817f6" "linux-lts=4.14.17-1")
+depends=("kmod" "spl-linux-lts-git" "zfs-utils-common-git=2018.02.05.r3278.3d25488af" "linux-lts=4.14.17-1")
 
 build() {
     cd "${srcdir}/zfs"
     ./autogen.sh
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --libdir=/usr/lib \
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/lib/udev \
-                --libexecdir=/usr/lib/zfs-0.7.5 --with-config=kernel \
+                --libexecdir=/usr/lib/zfs-0.7.6 --with-config=kernel \
                 --with-linux=/usr/lib/modules/4.14.17-1-lts/build \
                 --with-linux-obj=/usr/lib/modules/4.14.17-1-lts/build
     make
