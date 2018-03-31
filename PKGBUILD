@@ -18,15 +18,15 @@
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
 
-pkgver=2018.03.29.r3392.99f505a4d.4.14.30.1
+pkgver=2018.03.30.r3395.77d8a0f1a.4.14.31.1
 pkgrel=1
-makedepends=("linux-lts-headers=4.14.30-1" "libelf" "git" "spl-linux-lts-git-headers")
+makedepends=("linux-lts-headers=4.14.31-1" "libelf" "git" "spl-linux-lts-git-headers")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=99f505a4d743976d8879595d20beb66a6cbc3af1")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=77d8a0f1a4d0b2f59cee63088f7987cb38e66538")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "spl-linux-lts-git" "zfs-utils-common-git=2018.03.29.r3392.99f505a4d" "linux-lts=4.14.30-1")
+depends=("kmod" "spl-linux-lts-git" "zfs-utils-common-git=2018.03.30.r3395.77d8a0f1a" "linux-lts=4.14.31-1")
 
 build() {
     cd "${srcdir}/zfs"
@@ -34,8 +34,8 @@ build() {
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --libdir=/usr/lib \
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/lib/udev \
                 --libexecdir=/usr/lib/zfs-0.7.7 --with-config=kernel \
-                --with-linux=/usr/lib/modules/4.14.30-1-lts/build \
-                --with-linux-obj=/usr/lib/modules/4.14.30-1-lts/build
+                --with-linux=/usr/lib/modules/4.14.31-1-lts/build \
+                --with-linux-obj=/usr/lib/modules/4.14.31-1-lts/build
     make
 }
 
@@ -60,5 +60,5 @@ package_zfs-linux-lts-git-headers() {
     make DESTDIR="${pkgdir}" install
     rm -r "${pkgdir}/lib"
     # Remove reference to ${srcdir}
-    sed -i "s+${srcdir}++" ${pkgdir}/usr/src/zfs-*/4.14.30-1-lts/Module.symvers
+    sed -i "s+${srcdir}++" ${pkgdir}/usr/src/zfs-*/4.14.31-1-lts/Module.symvers
 }
