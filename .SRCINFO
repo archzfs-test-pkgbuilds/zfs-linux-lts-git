@@ -1,5 +1,5 @@
 pkgbase = zfs-linux-lts-git
-	pkgver = 2018.04.18.r3444.g599b86481.4.14.34.1
+	pkgver = 2018.04.19.r3445.gb4555c777.4.14.34.1
 	pkgrel = 1
 	url = http://zfsonlinux.org/
 	arch = x86_64
@@ -10,9 +10,9 @@ pkgbase = zfs-linux-lts-git
 	makedepends = spl-linux-lts-git-headers
 	depends = kmod
 	depends = spl-linux-lts-git
-	depends = zfs-utils-common-git=2018.04.18.r3444.g599b86481
+	depends = zfs-utils-common-git=2018.04.19.r3445.gb4555c777
 	depends = linux-lts=4.14.34-1
-	source = git+https://github.com/zfsonlinux/zfs.git#commit=599b8648133738b524ff4c58a72fc744b62fe142
+	source = git+https://github.com/zfsonlinux/zfs.git#commit=b4555c777a0be3c0dba29662d278c57099c60a87
 	sha256sums = SKIP
 
 pkgname = zfs-linux-lts-git
