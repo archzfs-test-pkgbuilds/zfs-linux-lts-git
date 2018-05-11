@@ -33,7 +33,7 @@ build() {
     ./autogen.sh
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --libdir=/usr/lib \
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/lib/udev \
-                --libexecdir=/usr/lib/zfs-0.7.8 --with-config=kernel \
+                --libexecdir=/usr/lib/zfs-0.7.9 --with-config=kernel \
                 --with-linux=/usr/lib/modules/4.14.40-1-lts/build \
                 --with-linux-obj=/usr/lib/modules/4.14.40-1-lts/build
     make
