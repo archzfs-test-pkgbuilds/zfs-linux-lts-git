@@ -45,6 +45,7 @@ package_zfs-linux-lts-git() {
     provides=("zfs")
     groups=("archzfs-linux-lts-git")
     conflicts=('zfs-linux-lts' 'spl-linux-lts-git')
+    replaces=("spl-linux-lts-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     cp -r "${pkgdir}"/{lib,usr}
