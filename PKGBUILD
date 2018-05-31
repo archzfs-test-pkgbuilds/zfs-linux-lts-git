@@ -18,15 +18,15 @@
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
 
-pkgver=2018.05.26.r3492.g3e5300e0e.4.14.41.1
+pkgver=2018.05.30.r4572.g93491c4bb.4.14.44.1
 pkgrel=1
-makedepends=("linux-lts-headers=4.14.41-1" "libelf" "git" "spl-linux-lts-git-headers")
+makedepends=("linux-lts-headers=4.14.44-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=3e5300e0ed3c4b49e3b0dab7daded1e3bfaaded7")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=93491c4bb9dcc755f74d266f2aeb5a2d3cf94432")
 sha256sums=("SKIP")
 license=("CDDL")
-depends=("kmod" "spl-linux-lts-git" "zfs-utils-common-git=2018.05.26.r3492.g3e5300e0e" "linux-lts=4.14.41-1")
+depends=("kmod" "zfs-utils-common-git=2018.05.30.r4572.g93491c4bb" "linux-lts=4.14.44-1")
 
 build() {
     cd "${srcdir}/zfs"
@@ -34,8 +34,8 @@ build() {
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --libdir=/usr/lib \
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/lib/udev \
                 --libexecdir=/usr/lib/zfs-0.7.9 --with-config=kernel \
-                --with-linux=/usr/lib/modules/4.14.41-1-lts/build \
-                --with-linux-obj=/usr/lib/modules/4.14.41-1-lts/build
+                --with-linux=/usr/lib/modules/4.14.44-1-lts/build \
+                --with-linux-obj=/usr/lib/modules/4.14.44-1-lts/build
     make
 }
 
@@ -44,7 +44,7 @@ package_zfs-linux-lts-git() {
     install=zfs.install
     provides=("zfs")
     groups=("archzfs-linux-lts-git")
-    conflicts=('zfs-linux-lts')
+    conflicts=('zfs-linux-lts' 'spl-linux-lts-git')
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     cp -r "${pkgdir}"/{lib,usr}
@@ -60,5 +60,5 @@ package_zfs-linux-lts-git-headers() {
     make DESTDIR="${pkgdir}" install
     rm -r "${pkgdir}/lib"
     # Remove reference to ${srcdir}
-    sed -i "s+${srcdir}++" ${pkgdir}/usr/src/zfs-*/4.14.41-1-lts/Module.symvers
+    sed -i "s+${srcdir}++" ${pkgdir}/usr/src/zfs-*/4.14.44-1-lts/Module.symvers
 }
