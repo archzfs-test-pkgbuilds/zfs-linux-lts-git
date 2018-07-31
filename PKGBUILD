@@ -18,15 +18,15 @@
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
 
-pkgver=2018.07.27.r4648.gfb7307b89.4.14.56.1
+pkgver=2018.07.31.r4657.g492f64e94.4.14.56.1
 pkgrel=1
 makedepends=("linux-lts-headers=4.14.56-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=fb7307b8922e9eb7da430733d6665e06d2cb0bf5" "upstream-ac09630-Fix-zpl_mount-deadlock.patch")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=492f64e941e3d6b947d1cc387a1a380c0c738b09" "upstream-ac09630-Fix-zpl_mount-deadlock.patch")
 sha256sums=("SKIP" "1799f6f7b2a60a23b66106c9470414628398f6bfc10da3d0f41c548bba6130e8")
 license=("CDDL")
-depends=("kmod" "zfs-utils-common-git=2018.07.27.r4648.gfb7307b89" "linux-lts=4.14.56-1")
+depends=("kmod" "zfs-utils-common-git=2018.07.31.r4657.g492f64e94" "linux-lts=4.14.56-1")
 
 build() {
     cd "${srcdir}/zfs"
