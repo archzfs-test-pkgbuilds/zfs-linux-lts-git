@@ -22,7 +22,7 @@ _zfsver="2018.08.23.r4692.g55972a672"
 _kernelver="4.14.67-1"
 _extramodules="4.14.67-1-lts"
 
-pkgver="${_zfsver}.$(echo ${_kernelver} | sed s/-/./g)"
+pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
 makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
