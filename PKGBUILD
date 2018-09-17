@@ -48,7 +48,7 @@ package_zfs-linux-lts-git() {
     install=zfs.install
     provides=("zfs" "spl")
     groups=("archzfs-linux-lts-git")
-    conflicts=("zfs-dkms" "zfs-dkms-git"'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts' "spl-dkms" "spl-dkms-git")
+    conflicts=("zfs-dkms" "zfs-dkms-git" 'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts' "spl-dkms" "spl-dkms-git")
     replaces=("spl-linux-lts-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
