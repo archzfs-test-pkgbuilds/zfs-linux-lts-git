@@ -1,6 +1,6 @@
 pkgbase = zfs-linux-lts-git
 	pkgver = 2018.12.11.r4860.g4b7029016_4.14.87.1
-	pkgrel = 1
+	pkgrel = 2
 	url = http://zfsonlinux.org/
 	arch = x86_64
 	license = CDDL

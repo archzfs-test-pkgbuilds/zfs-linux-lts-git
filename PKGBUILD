@@ -23,7 +23,7 @@ _kernelver="4.14.87-1"
 _extramodules="4.14.87-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
-pkgrel=1
+pkgrel=2
 makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
