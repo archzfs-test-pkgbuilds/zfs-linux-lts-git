@@ -17,18 +17,20 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='4b702901637ee0be1f654af38c86d0a68593f921'
-_zfsver="2018.12.11.r4860.g4b7029016"
-_kernelver="4.14.87-1"
-_extramodules="4.14.87-1-lts"
+_commit='d611989fdc176ccb54c24df99fd6c81b1cfff833'
+_zfsver="2019.01.13.r4900.gd611989fd"
+_kernelver="4.19.14-1"
+_extramodules="4.19.14-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
-pkgrel=2
-makedepends=("linux-lts-headers=${_kernelver}" "git")
+pkgrel=1
+makedepends=("linux-lts-headers=${_kernelver}" "git" "python")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
-sha256sums=("SKIP")
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}"
+        "upstream-4f981f6-additional-fixes-for-current_kernel_time-in-4.20.patch")
+sha256sums=("SKIP"
+            "6f27c3dae57c424e06aec31df6c1e1a821e547aa4e933f2f9b894b5e6762b52d")
 license=("CDDL")
 depends=("kmod" "zfs-utils-git=${_zfsver}" "linux-lts=${_kernelver}")
 
