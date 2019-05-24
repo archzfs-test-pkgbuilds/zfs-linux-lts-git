@@ -17,14 +17,14 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='f378f42b53382dc8e5a21dfad1a4d71271aba059'
-_zfsver="2019.05.09.r5126.gf378f42b5"
-_kernelver="4.19.41-1"
-_extramodules="4.19.41-1-lts"
+_commit='75c09c5060b85a144cc794ae857520662dc8fd58'
+_zfsver="2019.05.23.r5134.g75c09c506"
+_kernelver="4.19.45-1"
+_extramodules="4.19.45-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
-makedepends=("linux-lts-headers=${_kernelver}" "git" "python")
+makedepends=("python" "linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
 source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
@@ -48,7 +48,7 @@ package_zfs-linux-lts-git() {
     install=zfs.install
     provides=("zfs" "spl")
     groups=("archzfs-linux-lts-git")
-    conflicts=("zfs-dkms" "zfs-dkms-git" "zfs-dkms-rc" 'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts' "spl-dkms" "spl-dkms-git")
+    conflicts=("zfs-dkms" "zfs-dkms-git" "zfs-dkms-rc" "spl-dkms" "spl-dkms-git")
     replaces=("spl-linux-lts-git")
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
