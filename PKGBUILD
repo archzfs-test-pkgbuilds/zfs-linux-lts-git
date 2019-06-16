@@ -17,14 +17,14 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='75c09c5060b85a144cc794ae857520662dc8fd58'
-_zfsver="2019.05.23.r5134.g75c09c506"
-_kernelver="4.19.45-1"
-_extramodules="4.19.45-1-lts"
+_commit='c1b5801bb5af0055e5f3d263beaa07026103e212'
+_zfsver="2019.06.14.r5200.gc1b5801bb"
+_kernelver="4.19.50-1"
+_extramodules="4.19.50-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
-makedepends=("python" "linux-lts-headers=${_kernelver}" "git")
+makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
 source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
