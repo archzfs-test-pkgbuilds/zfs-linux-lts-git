@@ -17,16 +17,16 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='c1b5801bb5af0055e5f3d263beaa07026103e212'
-_zfsver="2019.06.14.r5200.gc1b5801bb"
-_kernelver="4.19.50-1"
-_extramodules="4.19.50-1-lts"
+_commit='ae38e00968a1920eb3c1051df888b24301e2f82b'
+_zfsver="2019.11.01.r5509.gae38e0096"
+_kernelver="4.19.81-1"
+_extramodules="4.19.81-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
 makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
-url="http://zfsonlinux.org/"
+url="https://zfsonlinux.org/"
 source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
 sha256sums=("SKIP")
 license=("CDDL")
@@ -37,7 +37,7 @@ build() {
     ./autogen.sh
     ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --libdir=/usr/lib \
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/lib/udev \
-                --libexecdir=/usr/lib/zfs-${zfsver} --with-config=kernel \
+                --libexecdir=/usr/lib/zfs-${_zfsver} --with-config=kernel \
                 --with-linux=/usr/lib/modules/${_extramodules}/build \
                 --with-linux-obj=/usr/lib/modules/${_extramodules}/build
     make
