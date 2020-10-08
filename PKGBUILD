@@ -17,22 +17,18 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='fc34dfba8e8238683e90e3fa83d16be3343886f6'
-_zfsver="2020.08.13.r6130.gfc34dfba8"
-_kernelver="5.4.58-1"
-_extramodules="5.4.58-1-lts"
+_commit='a76e4e676180acad9e12f5a1e03f5ff48ec85983'
+_zfsver="2020.10.05.r6289.ga76e4e676"
+_kernelver="5.4.69-1"
+_extramodules="5.4.69-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
 makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
 url="https://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}"
-        "linux-5.8-compat-__vmalloc.patch"
-)
-sha256sums=("SKIP"
-            "264728b1e4f7f7509fde76b6049c93033aa813ae6324f37609ff95db8c9e8959"
-)
+source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}")
+sha256sums=("SKIP")
 license=("CDDL")
 depends=("kmod" "zfs-utils-git=${_zfsver}" "linux-lts=${_kernelver}")
 
