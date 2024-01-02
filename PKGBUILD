@@ -17,20 +17,19 @@
 #
 pkgbase="zfs-linux-lts-git"
 pkgname=("zfs-linux-lts-git" "zfs-linux-lts-git-headers")
-_commit='f20fb199e60722abc052b6034bddb6b83d870c99'
-_zfsver="2021.06.25.r6982.gf20fb199e"
-_kernelver="5.10.46-1"
-_extramodules="5.10.46-1-lts"
+_commit='07e95b4670dc421ec726a2b4efa97a22fe572005'
+_zfsver="2023.12.27.r8950.g07e95b4670"
+_kernelver="6.1.70-1"
+_kernelver_full="6.1.70-1"
+_extramodules="6.1.70-1-lts"
 
 pkgver="${_zfsver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
 makedepends=("linux-lts-headers=${_kernelver}" "git")
 arch=("x86_64")
-url="https://zfsonlinux.org/"
-source=("git+https://github.com/zfsonlinux/zfs.git#commit=${_commit}"
-              "linux-5.12-compat.patch")
-sha256sums=("SKIP"
-                        "9c601804dc473766d85da2198aa3769707e051d3659dc82dd1302edd5e91a8cf")
+url="https://openzfs.org/"
+source=("git+https://github.com/openzfs/zfs.git#commit=${_commit}")
+sha256sums=("SKIP")
 license=("CDDL")
 depends=("kmod" "zfs-utils-git=${_zfsver}" "linux-lts=${_kernelver}")
 
@@ -53,7 +52,7 @@ package_zfs-linux-lts-git() {
     conflicts=("zfs-dkms" "zfs-dkms-git" "zfs-dkms-rc" "spl-dkms" "spl-dkms-git" 'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts')
     replaces=("spl-linux-lts-git")
     cd "${srcdir}/zfs"
-    make DESTDIR="${pkgdir}" INSTALL_MOD_PATH=/usr install
+    make DESTDIR="${pkgdir}" INSTALL_MOD_PATH=${pkgdir}/usr INSTALL_MOD_STRIP=1 install
     # Remove src dir
     rm -r "${pkgdir}"/usr/src
 }
